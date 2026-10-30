@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Boomboxpopart Originals">
+<meta property="og:description" content="Original hand-painted canvases by Sofia, Tel Aviv.">
+<meta property="og:image" content="https://boomboxpopart.github.io/img/4578959300.jpg">
+<meta property="og:url" content="https://boomboxpopart.github.io/">
+<title>Boomboxpopart Originals</title>
+<meta name="description" content="Original hand-painted canvases by Sofia, Boomboxpopart, Tel Aviv: thrift shops, falafel stands and 90s pop icons.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Rock+Salt&family=VT323&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@300;400&display=swap">
+<style>
+/* Layout: a paused-VHS freeze-frame of a 90s music-TV ident, drawn only in hairline outlines; the paintings are the only colour on the page. */
+:root {
+  --paper: #f7f6f2;
+  --ink: #141414;
+  --faint: rgba(20, 20, 20, .16);
+  --muted: #5d5d5a;
+  --hair: .75px;
+  --display: "Archivo Black", "Arial Black", Impact, sans-serif;
+  --script: "Rock Salt", "Segoe Print", "Comic Sans MS", cursive;
+  --vhs: "VT323", "Courier New", monospace;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0e0e0e; --ink: #ecebe6; --faint: rgba(236, 235, 230, .16); --muted: #a3a29c; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0e0e0e; --ink: #ecebe6; --faint: rgba(236, 235, 230, .16); --muted: #a3a29c; color-scheme: dark }
+
+* { box-sizing: border-box }
+body { background: var(--paper); color: var(--ink); font: 300 1rem/1.65 var(--body) }
+a { color: inherit }
+:focus-visible { outline: 1px dashed var(--ink); outline-offset: 4px }
+.wrap { max-width: 1240px; margin-inline: auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+
+/* Hairline SVG vocabulary */
+.ln { fill: none; stroke: var(--ink); stroke-width: var(--hair); vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round }
+.lf { fill: var(--paper); stroke: var(--ink); stroke-width: var(--hair); vector-effect: non-scaling-stroke; stroke-linejoin: round }
+.dash { stroke-dasharray: 2 5 }
+.dot { fill: var(--ink) }
+.out { font-family: var(--display); fill: var(--paper); stroke: var(--ink); stroke-width: var(--hair); vector-effect: non-scaling-stroke; paint-order: fill }
+.scr { font-family: var(--script); fill: var(--ink) }
+.vhs { font-family: var(--vhs); fill: var(--ink) }
+.mono { font-family: var(--mono); font-weight: 300; fill: var(--ink); letter-spacing: .28em }
+.frame { fill: none; stroke: var(--ink); stroke-width: var(--hair); vector-effect: non-scaling-stroke }
+
+/* Hero */
+.hero { padding-block: 18px 0 }
+.ident { display: block; width: 100%; height: auto; border: var(--hair) solid var(--ink); overflow: hidden }
+.below { display: grid; grid-template-columns: minmax(0, 1.4fr) auto; gap: 20px 40px; align-items: end; padding-block: 22px 0 }
+.below p { margin: 0; max-width: 56ch; font-size: 1.05rem }
+.cta { display: flex; gap: 10px; flex-wrap: wrap }
+.btn { font: 400 .78rem/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; padding: 13px 18px; text-decoration: none; border: var(--hair) solid var(--ink); position: relative; background: var(--paper) }
+.btn::after { content: ""; position: absolute; inset: 0; border: var(--hair) solid var(--ink); translate: 4px 4px; z-index: -1; transition: translate .15s }
+.btn:hover::after { translate: 0 0 }
+.btn { isolation: isolate }
+
+/* Divider */
+.zz { display: block; width: 100%; height: 18px; margin-block: 44px 0 }
+
+/* Gallery */
+.bar { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; padding-block: 26px 30px }
+.bar h2 { margin: 0; font: 400 clamp(2.2rem, 6vw, 4.2rem)/.9 var(--display); color: var(--paper); -webkit-text-stroke: var(--hair) var(--ink); letter-spacing: .01em }
+.bar h2 small { display: block; font: 400 1.25rem/1 var(--vhs); color: var(--ink); -webkit-text-stroke: 0; letter-spacing: .08em; margin-bottom: 8px }
+.filters { display: flex; gap: 8px; flex-wrap: wrap }
+.filters button { font: 400 .74rem/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; padding: 10px 13px; border: var(--hair) solid var(--ink); background: transparent; color: var(--ink); cursor: pointer }
+.filters button[aria-pressed="true"] { border-style: double; border-width: 3px; padding: 8px 11px }
+.grid { columns: 3 290px; column-gap: 34px; padding-bottom: 30px }
+.work { break-inside: avoid; margin: 0 0 42px; display: block; position: relative }
+.work:nth-child(3n+1) .pic { rotate: -1.2deg }
+.work:nth-child(3n+2) .pic { rotate: .8deg }
+.work:nth-child(3n) .pic { rotate: -.4deg }
+.pic { all: unset; cursor: zoom-in; display: block; position: relative; padding: 9px; border: var(--hair) solid var(--ink); background: var(--paper); isolation: isolate; transition: rotate .2s }
+.pic::after { content: ""; position: absolute; inset: 0; border: var(--hair) solid var(--ink); translate: 7px 7px; z-index: -1 }
+.pic:hover { rotate: 0deg !important }
+.pic:focus-visible { outline: 1px dashed var(--ink); outline-offset: 10px }
+.pic img { display: block; width: 100%; height: auto }
+.label { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; padding: 18px 2px 0; align-items: baseline }
+.label h3 { margin: 0; font: 400 1.05rem/1.2 var(--display); letter-spacing: .02em; text-transform: uppercase }
+.label .no { font: 400 1.05rem var(--vhs); color: var(--muted) }
+.label .meta { grid-column: 1 / -1; font: 300 .76rem/1.5 var(--mono); color: var(--muted); letter-spacing: .04em }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: clamp(24px, 5vw, 70px); align-items: center; padding-block: 30px 60px }
+.about .quote { margin: 0; font: 400 clamp(1.5rem, 3.4vw, 2.4rem)/1.35 var(--script); text-wrap: balance }
+.about p { margin: 0 0 1.4em; max-width: 60ch }
+footer { padding-block: 20px 30px; font: 400 1.1rem var(--vhs); letter-spacing: .06em; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-top: var(--hair) solid var(--ink) }
+
+/* Lightbox */
+dialog { border: 0; padding: 0; background: transparent; max-width: min(1000px, 94vw); max-height: 94vh; color: #f2f1ec }
+dialog::backdrop { background: rgba(8, 8, 8, .93) }
+dialog img { display: block; max-width: 100%; max-height: 80vh; margin: 0 auto; object-fit: contain; outline: .75px solid #f2f1ec; outline-offset: 8px }
+dialog .cap { padding: 18px 4px 0; font: 400 1.3rem var(--vhs); letter-spacing: .05em; text-align: center }
+.dlg-btn, .nav { position: fixed; background: transparent; color: #f2f1ec; border: .75px solid #f2f1ec; cursor: pointer; font: 400 1.2rem var(--vhs) }
+.dlg-btn { top: max(14px, env(safe-area-inset-top, 0px)); right: max(14px, env(safe-area-inset-right, 0px)); padding: 6px 14px }
+.nav { top: 50%; translate: 0 -50%; width: 44px; height: 44px }
+.nav.prev { left: max(10px, env(safe-area-inset-left, 0px)) } .nav.next { right: max(10px, env(safe-area-inset-right, 0px)) }
+
+@media (max-width: 720px) {
+  .below, .about { grid-template-columns: minmax(0, 1fr) }
+}
+@media (prefers-reduced-motion: reduce) { .pic, .btn::after { transition: none } }
+</style>
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <svg class="ident" viewBox="0 0 1200 720" role="img" aria-labelledby="ident-t">
+    <title id="ident-t">Boomboxpopart: original paintings, Tel Aviv</title>
+    <defs>
+      <pattern id="pt-grid"width="24" height="24" patternUnits="userSpaceOnUse"><path class="ln" d="M24 0H0V24" opacity=".22"/></pattern>
+      <pattern id="dots" width="11" height="11" patternUnits="userSpaceOnUse"><circle class="dot" cx="5.5" cy="5.5" r="1"/></pattern>
+      <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path class="ln" d="M0 0V7"/></pattern>
+      <pattern id="checker" width="44" height="44" patternUnits="userSpaceOnUse">
+        <rect width="22" height="22" fill="url(#hatch)"/><rect x="22" y="22" width="22" height="22" fill="url(#hatch)"/>
+        <path class="ln" d="M0 0H44V44H0Z M22 0V44 M0 22H44" opacity=".8"/>
+      </pattern>
+      <clipPath id="c1"><rect width="160" height="210"/></clipPath>
+      <clipPath id="c2"><rect width="150" height="190"/></clipPath>
+      <clipPath id="c3"><rect width="190" height="108"/></clipPath>
+    </defs>
+
+    <rect width="1200" height="720" fill="var(--paper)"/>
+    <rect width="1200" height="720" fill="url(#pt-grid)"/>
+
+    <!-- background shapes -->
+    <g transform="translate(560 235)"><circle class="ln" r="120"/><circle class="ln" r="152"/><circle class="ln dash" r="186"/></g>
+    <rect x="690" y="410" width="230" height="120" fill="url(#dots)" transform="rotate(-4 800 470)"/>
+    <rect x="215" y="585" width="132" height="110" fill="url(#checker)" transform="rotate(-9 280 640)"/>
+    <polygon id="star" class="lf" transform="translate(410 95) rotate(8)"/>
+    <text class="vhs" x="410" y="104" text-anchor="middle" font-size="26" transform="rotate(8 410 95)">NEW!</text>
+    <path class="lf" d="M0 0H44L24 52H52L-6 140L12 74H-14Z" transform="translate(865 38) rotate(10)"/>
+    <path class="ln" transform="translate(1120 330)" d="M0 0a6 6 0 0 1 12 0a12 12 0 0 1-24 0a18 18 0 0 1 36 0a24 24 0 0 1-48 0a30 30 0 0 1 60 0a36 36 0 0 1-72 0a42 42 0 0 1 84 0"/>
+    <polyline id="zig" class="ln"/>
+    <path class="ln" d="M610 470c30-40 60 40 90 0s60 40 90 0 60 40 90 0" transform="rotate(-6 745 470)" opacity="0"/>
+    <path class="ln" d="M330 40c40 25 10 60 50 70s20-50 60-35 0 55 40 60"/>
+    <path class="ln" d="M960 650c25-30 50 30 75 0s50 30 75 0 50 30 75 0"/>
+
+    <!-- paintings, the only colour -->
+    <g transform="translate(980 52) rotate(7)">
+      <image href="img/4582877292.jpg" width="160" height="210" preserveAspectRatio="xMidYMid slice" clip-path="url(#c1)"/>
+      <rect class="frame" x="-8" y="-8" width="176" height="226"/><rect class="frame" x="-2" y="-2" width="176" height="226"/>
+    </g>
+    <g transform="translate(38 430) rotate(-8)">
+      <image href="img/4578959300.jpg" width="150" height="190" preserveAspectRatio="xMidYMid slice" clip-path="url(#c2)"/>
+      <rect class="frame" x="-8" y="-8" width="166" height="206"/><rect class="frame" x="-3" y="-13" width="166" height="206"/>
+    </g>
+    <g transform="translate(560 585) rotate(5)">
+      <image href="img/4594359222.jpg" width="190" height="108" preserveAspectRatio="xMidYMid slice" clip-path="url(#c3)"/>
+      <rect class="frame" x="-7" y="-7" width="204" height="122"/>
+    </g>
+
+    <!-- the letters -->
+    <text class="out" x="62" y="330" font-size="232" transform="rotate(-5 62 330)">BOOM</text>
+    <text class="out" x="372" y="566" font-size="226" transform="rotate(3 372 566)">BOX</text>
+    <text class="mono" x="70" y="386" font-size="15" transform="rotate(-5 70 386)">ORIGINAL PAINTINGS ── TEL AVIV ── EST. 2014</text>
+    <text class="scr" x="760" y="372" font-size="64" transform="rotate(-11 760 372)">pop art</text>
+    <path class="ln" d="M770 392c80-18 170-30 260-58" transform="rotate(-11 760 372)"/>
+    <text class="out" x="545" y="672" font-size="52" lang="he" direction="rtl" transform="rotate(-3 545 672)">תל אביב</text>
+
+    <!-- boombox -->
+    <g class="ln" transform="translate(938 442) rotate(-6)">
+      <path d="M38 22V2H192V22"/>
+      <rect class="lf" y="22" width="230" height="128" rx="9"/>
+      <circle cx="55" cy="96" r="40"/><circle cx="55" cy="96" r="28"/><circle cx="55" cy="96" r="13"/><circle cx="55" cy="96" r="2"/>
+      <circle cx="175" cy="96" r="40"/><circle cx="175" cy="96" r="28"/><circle cx="175" cy="96" r="13"/><circle cx="175" cy="96" r="2"/>
+      <rect x="86" y="48" width="58" height="34" rx="3"/><circle cx="102" cy="65" r="8"/><circle cx="128" cy="65" r="8"/>
+      <path d="M88 30h9v8h-9z M102 30h9v8h-9z M116 30h9v8h-9z M130 30h9v8h-9z"/>
+      <path d="M205 22 255 -62"/><circle cx="255" cy="-62" r="3"/>
+      <path d="M90 112h50 M90 120h50 M90 128h50"/>
+    </g>
+
+    <!-- paused tape -->
+    <g opacity=".7"><path class="ln" d="M0 498H1200" stroke-dasharray="40 6 3 6 90 4"/><path class="ln" d="M0 503H1200" stroke-dasharray="7 13 60 5"/></g>
+    <text class="vhs" x="32" y="52" font-size="40">❚❚ PAUSE</text>
+    <text class="vhs" x="1168" y="702" font-size="34" text-anchor="end">SP  00:19:94</text>
+  </svg>
+  <div class="below">
+    <p>Hand-painted canvases by Sofia from Tel Aviv: thrift shops, falafel stands, barbers and nail salons, and a soft spot for 90s music-TV pop icons. Every piece is a one-off original.</p>
+    <div class="cta">
+      <a class="btn" href="#works">See the paintings</a>
+      <a class="btn" href="https://www.instagram.com/boomboxpopart" target="_blank" rel="noopener">Instagram ↗</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <svg class="zz" viewBox="0 0 1200 18" preserveAspectRatio="none" aria-hidden="true"><polyline id="zz" class="ln"/></svg>
+  <div class="bar" id="works">
+    <h2><small id="count">REC ● 16 ORIGINALS</small>The paintings</h2>
+    <div class="filters" role="group" aria-label="Filter paintings">
+      <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+      <button type="button" id="f-tlv" data-f="tlv" aria-pressed="false">Tel Aviv scenes</button>
+      <button type="button" id="f-pop" data-f="pop" aria-pressed="false">Pop icons &amp; minis</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+
+  <svg class="zz" viewBox="0 0 1200 18" preserveAspectRatio="none" aria-hidden="true"><polyline id="zz2" class="ln"/></svg>
+  <section class="about" id="about">
+    <p class="quote">“I paint what I love: Israel!”</p>
+    <div>
+      <p>Sofia is a Tel Aviv painter who mixes 1990s MTV nostalgia, maximalist pop culture and lively figurative painting. The work runs from her city's falafel joints and second-hand shops to bright, stylised pop icons, painted flat and bold in acrylic and gouache.</p>
+      <a class="btn" href="https://www.instagram.com/boomboxpopart" target="_blank" rel="noopener">Follow @boomboxpopart ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© SOFIA / BOOMBOXPOPART · TEL AVIV</span>
+  <a href="https://www.instagram.com/boomboxpopart" target="_blank" rel="noopener">@BOOMBOXPOPART ↗</a>
+</footer>
+
+<dialog id="lb" aria-label="Painting">
+  <button class="dlg-btn" id="lb-close" type="button">STOP ■</button>
+  <button class="nav prev" id="lb-prev" type="button" aria-label="Previous painting">◀◀</button>
+  <button class="nav next" id="lb-next" type="button" aria-label="Next painting">▶▶</button>
+  <img id="lb-img" alt="">
+  <div class="cap" id="lb-cap"></div>
+</dialog>
+
+<script>
+// hairline ornaments
+(() => {
+  const pts = [];
+  for (let i = 0; i < 24; i++) { const r = i % 2 ? 26 : 58, a = i * Math.PI / 12; pts.push((r * Math.cos(a)).toFixed(1) + "," + (r * Math.sin(a)).toFixed(1)); }
+  document.getElementById("star").setAttribute("points", pts.join(" "));
+  const zig = (n, w, y0, y1) => Array.from({ length: n + 1 }, (_, i) => `${(i * w / n).toFixed(1)},${i % 2 ? y1 : y0}`).join(" ");
+  document.getElementById("zig").setAttribute("points", zig(28, 560, 668, 648));
+  document.getElementById("zz").setAttribute("points", zig(80, 1200, 16, 2));
+  document.getElementById("zz2").setAttribute("points", zig(80, 1200, 2, 16));
+})();
+
+const WORKS = [
+  { id: "4578959300", t: "Second Hand, Tel Aviv", m: "Acrylic on canvas", s: "60 × 40 cm", c: "tlv" },
+  { id: "4587796464", t: "The Deli", m: "Acrylic on canvas", s: "30 × 23 cm", c: "tlv" },
+  { id: "4582877292", t: "Falafel", m: "Acrylic on canvas", s: "30 × 23 cm", c: "tlv" },
+  { id: "4587068185", t: "Tel Aviv Fashion Week", m: "Acrylic on canvas", s: "30 × 23 cm", c: "tlv" },
+  { id: "4582883012", t: "Nail Salon", m: "Acrylic on canvas", s: "30 × 23 cm", c: "tlv" },
+  { id: "4587765724", t: "Vintage Thrift Shop", m: "Acrylic on canvas", s: "18 × 18 cm", c: "tlv" },
+  { id: "4585461311", t: "Bagel Brothers", m: "Gouache on canvas", s: "13 × 18 cm", c: "tlv" },
+  { id: "4585476032", t: "Star of David", m: "Gouache on canvas", s: "13 × 18 cm", c: "tlv" },
+  { id: "4585205055", t: "Tel Aviv Museum of Art I", m: "Acrylic on canvas", s: "13 × 18 cm", c: "tlv" },
+  { id: "4584755564", t: "Tel Aviv Museum of Art II", m: "Acrylic on canvas", s: "18 × 11 cm", c: "tlv" },
+  { id: "4582959881", t: "Barber Shop", m: "Acrylic on canvas", s: "18 × 11 cm", c: "tlv" },
+  { id: "4588861608", t: "Postcards from Tel Aviv", m: "Mini canvases", s: "set of 3", c: "tlv" },
+  { id: "4600890015", t: "Purple Legend", m: "Acrylic on canvas", s: "80s pop icon", c: "pop" },
+  { id: "4594359222", t: "90s Icons", m: "Mini acrylic canvases", s: "set of 3", c: "pop" },
+  { id: "4588249037", t: "Retro Pop Minis", m: "Mini acrylic canvases", s: "set", c: "pop" },
+  { id: "4592448644", t: "Mini Pop", m: "Acrylic on mini canvas", s: "7 cm", c: "pop" }
+];
+const grid = document.getElementById("grid"), count = document.getElementById("count");
+const no = w => String(WORKS.indexOf(w) + 1).padStart(2, "0");
+let visible = WORKS;
+
+function render(filter) {
+  visible = filter === "all" ? WORKS : WORKS.filter(w => w.c === filter);
+  grid.innerHTML = visible.map((w, i) => `
+    <article class="work">
+      <button class="pic" type="button" data-i="${i}" aria-label="Enlarge ${w.t}">
+        <img src="img/${w.id}.jpg" alt="${w.t}, ${w.m.toLowerCase()}, by Boomboxpopart" loading="lazy">
+      </button>
+      <div class="label">
+        <h3>${w.t}</h3><span class="no">CH ${no(w)}</span>
+        <span class="meta">${w.m} · ${w.s}</span>
+      </div>
+    </article>`).join("");
+  count.textContent = `REC ● ${visible.length} ORIGINALS`;
+}
+document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
+  document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  render(b.dataset.f);
+}));
+
+const lb = document.getElementById("lb");
+let cur = 0;
+function show(i) {
+  cur = (i + visible.length) % visible.length;
+  const w = visible[cur];
+  document.getElementById("lb-img").src = `img/${w.id}.jpg`;
+  document.getElementById("lb-img").alt = w.t;
+  document.getElementById("lb-cap").textContent = `CH ${no(w)} ▸ ${w.t.toUpperCase()} · ${w.m} · ${w.s}`;
+}
+grid.addEventListener("click", e => {
+  const b = e.target.closest("button.pic");
+  if (!b) return;
+  show(+b.dataset.i);
+  lb.showModal();
+});
+document.getElementById("lb-close").onclick = () => lb.close();
+document.getElementById("lb-prev").onclick = () => show(cur - 1);
+document.getElementById("lb-next").onclick = () => show(cur + 1);
+lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+lb.addEventListener("keydown", e => {
+  if (e.key === "ArrowLeft") show(cur - 1);
+  if (e.key === "ArrowRight") show(cur + 1);
+});
+render("all");
+</script>
+</body>
+</html>
