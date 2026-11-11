@@ -138,6 +138,7 @@ dialog::backdrop { background: var(--bg) }
 </dialog>
 
 <script>
+const V = "20261111b";
 const WORKS = [
   { id: "n0002", t: "New series, no. 1", m: "Acrylic on canvas", s: "15 × 15 cm", c: "new" },
   { id: "n0003", t: "New series, no. 2", m: "Acrylic on canvas", s: "15 × 15 cm", c: "new" },
@@ -177,7 +178,7 @@ function render(filter) {
   works.innerHTML = visible.map((w, i) => `
     <figure class="work">
       <button class="pic" type="button" data-i="${i}" aria-label="View ${w.t} larger">
-        <img src="img/w900/${w.id}.jpg" alt="${w.t}. ${detail(w)}." loading="${i < 6 ? "eager" : "lazy"}">
+        <img src="img/w900/${w.id}.jpg?v=${V}" alt="${w.t}. ${detail(w)}." loading="${i < 6 ? "eager" : "lazy"}">
       </button>
       <figcaption><i>${w.t}</i><span>${detail(w)}</span></figcaption>
     </figure>`).join("");
@@ -192,7 +193,7 @@ let cur = 0;
 function show(i) {
   cur = (i + visible.length) % visible.length;
   const w = visible[cur];
-  lbImg.src = `img/w1800/${w.id}.jpg`;
+  lbImg.src = `img/w1800/${w.id}.jpg?v=${V}`;
   lbImg.alt = `${w.t}. ${detail(w)}.`;
   document.getElementById("lb-cap").innerHTML = `<i>${w.t}</i> <span>· ${detail(w)}</span>`;
   document.getElementById("lb-count").textContent = `${cur + 1} / ${visible.length}`;
